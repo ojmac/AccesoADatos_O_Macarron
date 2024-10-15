@@ -1,4 +1,0 @@
-	/*Ejercicio 3.1.2 Implementa una clase con un método que evidencie la diferencia de 
-	 *rendimiento entre el uso de las clases FileReader y FileWriter y las clases BufferedReader
-	 *y BufferedWriter. 
-	 *Para los cálculos de tiempo puede hacerse uso del método System.currentTimeMillis().*/
