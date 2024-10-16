@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coches>
+    <coche matricula="1111AAA">
+        <marca>Mercedes</marca>
+        <anio>2015</anio>
+    </coche>
+    <coche matricula="2222BBB">
+        <marca>Maserati</marca>
+        <anio>2018</anio>
+    </coche>
+    <coche matricula="3333CCC">
+        <marca>BMW</marca>
+        <anio>2020</anio>
+    </coche>
+</coches>
