@@ -11,7 +11,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class Ej_5_1_1 {
+public class Ej_5_2_1 {
 	
 	
 	public void leerXML() {
