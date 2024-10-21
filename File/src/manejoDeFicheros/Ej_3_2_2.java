@@ -8,13 +8,13 @@ import java.io.IOException;
 public class Ej_3_2_2 {
 	
 
-	/*Ejercicio 3.2.1 Implementa una clase para el ejercicio con un método que serialice y guarde
-	 *en fichero un objeto de la clase coche. La clase coche constará de los atributos matrícula, 
-	 *marca y año de matriculación. El método tendrá como parámetros estos mismos atributos.
-	 *Implementa otro método cuya finalidad sea la lectura de la información de todos los coches 
-	 *registrados en fichero.
-	 *Emplea métodos de Test para la ejecución de ambos métodos. 
-	 *Se añadirán al menos tres coches al fichero.
+	/*Ejercicio 3.2.2 Se modifica la solución del Ejercicio 3.2.1 para que, 
+	 * en lugar de guardar la información mediante un clase de tipo ObjectOutputStream, 
+	 * se emplee una clase de tipo DataOutputStream. Respecto a la lectura de información 
+	 * del fichero, en lugar de emplear la clase ObjectInputStream, se empleará la clase 
+	 * DataInputStream.
+	 * Emplea métodos de Test para la ejecución de los dos métodos implicados. 
+	 * Se añadirá al menos la información de tres coches al fichero.
 	*/
 
 		public void guardaCoches2(String marca, String matricula, int anyoMatriculacion) {

@@ -16,8 +16,6 @@ public class Ej_5_2_1 {
 	
 	public void leerXML() {
 		
-		
-
 		try {
 			DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = fact.newDocumentBuilder();
