@@ -52,10 +52,10 @@ public class Ej_4_2_1 {
 	}
 
 	public void leerAlea(String file) {
-
+		RandomAccessFile raf= null;
 		try {
 			long reg = 0L;
-			RandomAccessFile raf = new RandomAccessFile(file, "r");
+			raf = new RandomAccessFile(file, "r");
 
 			while (true) {
 
@@ -63,13 +63,21 @@ public class Ej_4_2_1 {
 
 				reg += 0L + 18 + 30 + 4;
 			}
-
+		
 		} catch (FileNotFoundException e) {
 			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Bloque catch generado automáticamente
+			
+			
 			System.out.println(" *** Fin de registros ***");
+		}finally {
+			try {
+				raf.close();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
 		}
 
 	}
