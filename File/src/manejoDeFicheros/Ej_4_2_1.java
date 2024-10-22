@@ -13,6 +13,10 @@ public class Ej_4_2_1 {
 	 * registros del mismo tipo mediante arrays pasados por parámetros con los IDs,
 	 * nombres y edades de usuarios. Implementa otro método que permita la lectura
 	 * de todos los registros del fichero.
+	 * Implementa finalmente un método que modifique la edad de un registro para un id 
+	 * determinado pasado por parámetro. La edad también se pasará por parámetro a este nuevo método.
+	 * Emplea un método de Test para la ejecución de todos los métodos de la clase.
+
 	 */
 
 	public void escrbAlea(String[] nombres, String[] ids, int[] edades) {
