@@ -7,3 +7,4 @@ INSERT INTO tareas_pendientes (id, descripcion, fecha_inicio, fecha_final, final
 INSERT INTO tareas_pendientes (id, descripcion, fecha_inicio, fecha_final, finalizada) VALUES (7, 'Práctica JDBC', '2024-10-30', '2024-11-07', FALSE);
 INSERT INTO tareas_pendientes (id, descripcion, fecha_inicio, fecha_final, finalizada) VALUES (8, 'FCT', '2025-03-01', '2025-05-24', FALSE);
 
+
