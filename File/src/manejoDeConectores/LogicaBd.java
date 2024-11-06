@@ -2,42 +2,48 @@ package manejoDeConectores;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Properties;
 
 public class LogicaBd {
 
 	String rutaScriptCreacion="";
 	String rutaScriptInsercion="";
+	BD bd = null;
 
-	public BD crearBD(File file) {
-		Properties pr = new Properties();
-		BD bd= null;
-		try (FileInputStream fis = new FileInputStream(file)) {
-			pr.load(fis);
+    public BD crearBD(File file) {
+    	
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String[] values = new String[5];  
+            String line;
+            int index = 0;
 
-			String cadConexion = pr.getProperty("cadena_conexion");
-			String usuarioBD = pr.getProperty("usuarioBD");
-			String pswdBD = pr.getProperty("contrasenaBD");
-			rutaScriptCreacion = pr.getProperty("rutaScriptCreacion");
-			rutaScriptInsercion = pr.getProperty("rutaScriptInsercion");
+            while ((line = br.readLine()) != null && index < values.length) {
+                String[] partes = line.split("=", 2); 
+                if (partes.length == 2) { 
+                    values[index] = partes[1].trim(); 
+                    index++;
+                }
+            }
 
-			fis.close();
-			bd = new BD(cadConexion, usuarioBD, pswdBD, "tareas_pendientes");
-			System.out.println("Conexión a la base de datos establecida con éxito.");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return bd;
-	}
+            bd = new BD(values[0], values[1], values[2], "tareas_pendientes");
+            rutaScriptCreacion=values[3];
+        	rutaScriptInsercion=values[4];
 
-	public void creaTabla() {
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return bd;
+    }
+
+	public void creaTabla(File file) {
 		
-		BD bd = crearBD(new File("bd.config"));
-
+		crearBD(file);
+		
 		BufferedReader br = null;
 		boolean ok = false;
 
@@ -54,7 +60,7 @@ public class LogicaBd {
 				sentencia.append(linea);
 			}
 			String setenciaSQL = sentencia.toString();
-			ok = bd.crearTabla(setenciaSQL);
+			ok = bd.crearTablaInsertarDatos(setenciaSQL);
 			if (ok)
 				System.out.println("Tabla creada!!");
 
@@ -73,10 +79,9 @@ public class LogicaBd {
 		}
 	}
 
-	public void insertaDatos() {
+	public void insertaDatos(File file) {
+		crearBD(file);
 		
-		BD bd = crearBD(new File("bd.config"));
-
 		BufferedReader br = null;
 		boolean ok = false;
 
@@ -84,13 +89,13 @@ public class LogicaBd {
 			
 			br = new BufferedReader(new FileReader(rutaScriptInsercion));
 			String linea;
-			StringBuilder sentencia = new StringBuilder();
+			
 			while ((linea = br.readLine()) != null) {
-
-				sentencia.append(linea).append("\n");
+				 if (!linea.trim().isEmpty()) {
+				System.out.println(linea);
+				ok = bd.crearTablaInsertarDatos(linea);
+				 }
 			}
-			String setenciaSQL = sentencia.toString();
-			ok = bd.insertarDatos(setenciaSQL);
 
 		} catch (FileNotFoundException e) {
 
@@ -111,15 +116,15 @@ public class LogicaBd {
 		}
 	}
 
-	public void modificaCampo(int[] ids, boolean finalizada) {
+	public void modificaCampo(int[] ids, boolean finalizada, File file) {
+		crearBD(file);
 
-		BD bd = crearBD(new File("bd.config"));
 		bd.modifcarCampo(ids, finalizada);
 	}
 
-	public void muestraDatos(String fechaInicio, String fechaFinal) {
-
-		BD bd = crearBD(new File("bd.config"));
+	public void muestraDatos(String fechaInicio, String fechaFinal, File file) {
+		crearBD(file);
+		
 		bd.mostrarDatos(fechaInicio, fechaFinal);
 	}
 

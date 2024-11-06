@@ -19,19 +19,19 @@ class LogicaBdTest {
 
 	@Test
 	void creaTablaTest() {
-		lbd.creaTabla();
+		lbd.creaTabla(file);
 	}
 	@Test
 	void insertaDatosTest() {
-		lbd.insertaDatos();
+		lbd.insertaDatos(file);
 	}
 	@Test
 	void modificaCamposTest() {
-		lbd.modificaCampo(ids, finalizada);
+		lbd.modificaCampo(ids, finalizada, file);
 	}
 	@Test
 	void muestraDatosTest() {
-		lbd.muestraDatos(fechaInicial, fechaFinal);
+		lbd.muestraDatos(fechaInicial, fechaFinal, file);
 	}
 
 }
