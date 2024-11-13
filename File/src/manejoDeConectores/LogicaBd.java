@@ -75,7 +75,6 @@ public class LogicaBd {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
 	}
 

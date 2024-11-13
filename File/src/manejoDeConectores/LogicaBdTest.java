@@ -20,6 +20,7 @@ class LogicaBdTest {
 	@Test
 	void creaTablaTest() {
 		lbd.creaTabla(file);
+		
 	}
 	@Test
 	void insertaDatosTest() {
