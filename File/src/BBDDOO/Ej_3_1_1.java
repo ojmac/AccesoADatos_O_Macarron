@@ -107,5 +107,21 @@ public class Ej_3_1_1 {
 		
 		
 	}
+	public void mostrarTareas2() {
+		
+		NeoDatis nd = new NeoDatis("BBDDTareas2.db");
+		
+	    List<Tarea> ts = nd.recuperarObjs( Tarea.class );
+		
+		nd.cerrarOBD();
+		
+		for (Tarea t: ts) {
+			
+			System.out.println(t);
+			
+		}
+		
+		
+	}
 	
 }

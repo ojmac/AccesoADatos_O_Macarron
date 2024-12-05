@@ -34,5 +34,11 @@ class Ej_3_1_1Test {
 		ej.mostrarTareas();
 		
 	}
+	@Test
+	void  mostrarTareas2Test() {
+		ej.mostrarTareas2();
+		
+	}
+	
 
 }
