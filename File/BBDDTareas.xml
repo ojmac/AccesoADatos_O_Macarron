@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<odb name="BBDDTareas.db" export-date-time="1733396687898" max-oid="21" file-format-version="9">
+<odb name="BBDDTareas.db" export-date-time="1733398939808" max-oid="17" file-format-version="9">
   <meta-model >
     <class id="1" name="BBDDOO.TipoTarea">
       <attribute id="1" name="id" type="int"/>
@@ -31,35 +31,15 @@
       <attribute id="2" name="abreviatura" value="est"/>
       <attribute id="3" name="descripcion" value="estudios"/>
     </object>
-    <object oid="10" class-id="1">
-      <attribute id="1" name="id" value="2"/>
-      <attribute id="2" name="abreviatura" value="comp"/>
-      <attribute id="3" name="descripcion" value="hacer+compras"/>
-    </object>
-    <object oid="12" class-id="1">
+    <object oid="11" class-id="1">
       <attribute id="1" name="id" value="4"/>
       <attribute id="2" name="abreviatura" value="viaj"/>
       <attribute id="3" name="descripcion" value="viajes"/>
     </object>
-    <object oid="14" class-id="1">
+    <object oid="13" class-id="1">
       <attribute id="1" name="id" value="5"/>
       <attribute id="2" name="abreviatura" value="var"/>
       <attribute id="3" name="descripcion" value="varios+personal"/>
-    </object>
-    <object oid="16" class-id="1">
-      <attribute id="1" name="id" value="6"/>
-      <attribute id="2" name="abreviatura" value="var"/>
-      <attribute id="3" name="descripcion" value="varios+personal"/>
-    </object>
-    <object oid="18" class-id="1">
-      <attribute id="1" name="id" value="7"/>
-      <attribute id="2" name="abreviatura" value="est"/>
-      <attribute id="3" name="descripcion" value="estudios"/>
-    </object>
-    <object oid="20" class-id="1">
-      <attribute id="1" name="id" value="3"/>
-      <attribute id="2" name="abreviatura" value="est"/>
-      <attribute id="3" name="descripcion" value="estudios"/>
     </object>
     <object oid="3" class-id="2">
       <attribute id="1" name="id" value="9"/>
@@ -91,64 +71,63 @@
       <attribute id="3" name="fechaInicio" value="2024-02-15"/>
       <attribute id="4" name="fechaFin" value="2024-05-20"/>
       <attribute id="5" name="finalizada" value="true"/>
-      <attribute id="6" name="tipoTarea" ref-oid="10"/>
+      <attribute id="6" name="tipoTarea" ref-oid="6"/>
     </object>
-    <object oid="11" class-id="2">
+    <object oid="10" class-id="2">
       <attribute id="1" name="id" value="4"/>
       <attribute id="2" name="descripcion" value="Ir+a+Australia"/>
       <attribute id="3" name="fechaInicio" value="2024-06-01"/>
       <attribute id="4" name="fechaFin" value="2024-08-25"/>
       <attribute id="5" name="finalizada" value="true"/>
-      <attribute id="6" name="tipoTarea" ref-oid="12"/>
+      <attribute id="6" name="tipoTarea" ref-oid="11"/>
     </object>
-    <object oid="13" class-id="2">
+    <object oid="12" class-id="2">
       <attribute id="1" name="id" value="5"/>
       <attribute id="2" name="descripcion" value="Revisi%F3n+del+coche"/>
       <attribute id="3" name="fechaInicio" value="2024-10-08"/>
       <attribute id="4" name="fechaFin" value="2024-10-16"/>
       <attribute id="5" name="finalizada" value="true"/>
-      <attribute id="6" name="tipoTarea" ref-oid="14"/>
+      <attribute id="6" name="tipoTarea" ref-oid="13"/>
     </object>
-    <object oid="15" class-id="2">
+    <object oid="14" class-id="2">
       <attribute id="1" name="id" value="6"/>
       <attribute id="2" name="descripcion" value="Otra+cosa"/>
       <attribute id="3" name="fechaInicio" value="2024-10-01"/>
       <attribute id="4" name="fechaFin" value="2024-12-01"/>
       <attribute id="5" name="finalizada" value="false"/>
-      <attribute id="6" name="tipoTarea" ref-oid="16"/>
+      <attribute id="6" name="tipoTarea" ref-oid="13"/>
     </object>
-    <object oid="17" class-id="2">
+    <object oid="15" class-id="2">
       <attribute id="1" name="id" value="7"/>
       <attribute id="2" name="descripcion" value="Pr%E1ctica+JDBC"/>
       <attribute id="3" name="fechaInicio" value="2024-10-30"/>
       <attribute id="4" name="fechaFin" value="2024-11-07"/>
       <attribute id="5" name="finalizada" value="false"/>
-      <attribute id="6" name="tipoTarea" ref-oid="18"/>
+      <attribute id="6" name="tipoTarea" ref-oid="8"/>
     </object>
-    <object oid="19" class-id="2">
+    <object oid="16" class-id="2">
       <attribute id="1" name="id" value="8"/>
       <attribute id="2" name="descripcion" value="FCT"/>
       <attribute id="3" name="fechaInicio" value="2025-03-01"/>
       <attribute id="4" name="fechaFin" value="2025-05-24"/>
       <attribute id="5" name="finalizada" value="false"/>
-      <attribute id="6" name="tipoTarea" ref-oid="20"/>
+      <attribute id="6" name="tipoTarea" ref-oid="8"/>
     </object>
-    <object oid="21" class-id="2">
+    <object oid="17" class-id="2">
       <attribute id="1" name="id" value="10"/>
-      <attribute id="2" name="descripcion" value="inserto nuevo datos por xml"/>
-      <attribute id="3" name="fechaInicio" value="2024-12-5"/>
-      <attribute id="4" name="fechaFin" value="2024-12-5"/>
+      <attribute id="2" name="descripcion" value="insertar datos por xml"/>
+      <attribute id="3" name="fechaInicio" value="2024-12-05"/>
+      <attribute id="4" name="fechaFin" value="2024-12-05"/>
       <attribute id="5" name="finalizada" value="true"/>
-      <attribute id="6" name="tipoTarea" ref-oid="14"/>
+      <attribute id="6" name="tipoTarea" ref-oid="4"/>
     </object>
-       <object oid="22" class-id="2">
-      <attribute id="1" name="id" value="10"/>
-      <attribute id="2" name="descripcion" value="practico NeoDatis"/>
-      <attribute id="3" name="fechaInicio" value="2024-12-5"/>
-      <attribute id="4" name="fechaFin" value="2024-12-5"/>
+    <object oid="18" class-id="2">
+      <attribute id="1" name="id" value="11"/>
+      <attribute id="2" name="descripcion" value="Estudiar NeoDatis"/>
+      <attribute id="3" name="fechaInicio" value="2024-12-05"/>
+      <attribute id="4" name="fechaFin" value="2024-12-05"/>
       <attribute id="5" name="finalizada" value="true"/>
       <attribute id="6" name="tipoTarea" ref-oid="8"/>
     </object>
-    
   </objects>
 </odb>

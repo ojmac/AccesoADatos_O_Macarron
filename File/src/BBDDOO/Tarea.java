@@ -1,14 +1,14 @@
 package BBDDOO;
 
 public class Tarea {
-	
+
 	private int id;
 	private String descripcion;
 	private String fechaInicio;
 	private String fechaFin;
 	private boolean finalizada;
 	private TipoTarea tipoTarea;
-	
+
 	public Tarea(int id, String descripcion, String fechaInicio, String fechaFin, boolean finalizada,
 			TipoTarea tipoTarea) {
 		super();
@@ -19,7 +19,7 @@ public class Tarea {
 		this.finalizada = finalizada;
 		this.tipoTarea = tipoTarea;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -73,9 +73,5 @@ public class Tarea {
 		return "Tarea [id=" + id + ", descripcion=" + descripcion + ", fechaInicio=" + fechaInicio + ", fechaFin="
 				+ fechaFin + ", finalizada=" + finalizada + ", tipoTarea=" + tipoTarea + "]";
 	}
-
-
-	
-	
 
 }
