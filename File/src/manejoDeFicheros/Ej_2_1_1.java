@@ -23,8 +23,11 @@ public class Ej_2_1_1 {
 			for (File f : ficheros) {
 
 				if (f.isDirectory()) {
+					
 					System.out.println("Nombre del directorio: " + f.getName());
+					
 				} else {
+					
 					System.out.println("Nombre del fichero: " + f.getName());
 				}
 			}

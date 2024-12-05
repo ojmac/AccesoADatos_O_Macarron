@@ -13,6 +13,9 @@ public class Coche implements Serializable{
 		this.matricula = matricula;
 		this.anyoMatriculacion = anyoMatriculacion;
 	}
+	public Coche() {
+		
+	};
 
 	public String getMarca() {
 		return marca;
