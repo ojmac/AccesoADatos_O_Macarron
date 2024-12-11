@@ -1,0 +1,13 @@
+
+Clase Neodatis:
+Me gusta que haga una clase como de capa de base de datos, la cual yo en mi
+caso no hago, porque despues es mas sencillo ya que simplemente tienes
+que llamar al metodo de esa clase, y asi no tienes que instanciar otra vez.
+
+clase principal del ejercicio:
+El uso de for each el cual yo no uso que deberia empezar a usar.
+Funcionamiento perfecto ademas de bien estructurado.
+
+
+
+
