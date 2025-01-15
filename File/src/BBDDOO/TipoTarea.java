@@ -1,5 +1,7 @@
 	package BBDDOO;
 
+import org.neodatis.odb.Objects;
+
 public class TipoTarea {
 	
 	private int id;
@@ -42,6 +44,6 @@ public class TipoTarea {
 		return "TipoTarea [id=" + id + ", abreviatura=" + abreviatura + ", descripcion=" + descripcion + "]";
 	}
 	
-	
+
 	
 }

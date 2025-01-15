@@ -15,7 +15,7 @@
       <attribute id="6" name="tipoTarea" type="BBDDOO.TipoTarea"/>
     </class>
   </meta-model>
-  <objects >
+  <objects>
     <object oid="4" class-id="1">
       <attribute id="1" name="id" value="1"/>
       <attribute id="2" name="abreviatura" value="deb"/>

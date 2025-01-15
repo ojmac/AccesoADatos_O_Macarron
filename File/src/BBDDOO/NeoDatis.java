@@ -26,6 +26,30 @@ public class NeoDatis {
 	public void insertarObj(Tarea tarea) {
 		odb.store(tarea);
 	}
+	
+	public void insertarObjUnicos(Tarea tarea) {  //Método válido sólo cuando creas un nuevo TipoTarea en la instancia de Tarea, si insertas TipoTareas ya creadas, no podrias y seria correcto, es decir las TipoTareas deben de repetirse
+		
+		boolean tareaOK = false;
+		boolean tipoTareaOK = false;
+				
+		if(this.verificarClases(tarea)) {
+			tareaOK = true;
+		}else {
+			System.out.println("Tarea ya insertada");
+			
+		}
+		
+		TipoTarea tipoTarea = tarea.getTipoTarea();
+			
+		if(this.verificarClases(tipoTarea)) {
+			tipoTareaOK = true;
+		}else {
+			System.out.println("TipoTarea ya existe");	
+		}
+		if(tareaOK && tipoTareaOK) {
+			odb.store(tarea);
+		}
+	}
 
 	public Tarea mostrarObjXId(int id) {
 
@@ -68,11 +92,12 @@ public class NeoDatis {
 //		ICriterion criterio = Where.equal("tipoTarea", tt);
 //		IQuery query = new CriteriaQuery(Tarea.class, criterio);
 
-		IQuery query = new CriteriaQuery(Tarea.class, Where.equal("tipoTarea", tt));
+//	    IQuery query = new CriteriaQuery(Tarea.class, Where.equal("tipoTarea", tt));
+		IQuery query = new CriteriaQuery(Tarea.class, Where.equal("tipoTarea.id", 1));
 
 		Objects<Tarea> tareas = this.odb.getObjects(query);
 
-		List<Tarea> tareasL = new ArrayList();
+		List<Tarea> tareasL = new ArrayList<>();
 
 		while (tareas.hasNext()) {
 
@@ -89,7 +114,8 @@ public class NeoDatis {
 
 		Objects<Tarea> tareas = this.odb.getObjects(query);
 
-		List<Tarea> tareasL = new ArrayList();
+		
+		List<Tarea> tareasL = new ArrayList<Tarea>();
 
 		while (tareas.hasNext()) {
 
@@ -98,6 +124,7 @@ public class NeoDatis {
 		}
 		return tareasL;
 	}
+	
 	public List<Tarea> objsSelecc2(String fechaInicio, String fechaFin) {
 		
 		ICriterion criterio = Where.ge("fechaInicio", fechaInicio);
@@ -109,7 +136,7 @@ public class NeoDatis {
 
 		Objects<Tarea> tareas = this.odb.getObjects(query);
 
-		List<Tarea> tareasL = new ArrayList();
+		List<Tarea> tareasL = new ArrayList<Tarea>();
 
 		while (tareas.hasNext()) {
 
@@ -118,6 +145,7 @@ public class NeoDatis {
 		}
 		return tareasL;
 	}
+	
 	public List<Tarea> objsSelecc3(String fechaInicio, String fechaFin) {
 		
 		ICriterion criterio = Where.gt("fechaInicio", fechaInicio);
@@ -129,18 +157,74 @@ public class NeoDatis {
 
 		Objects<Tarea> tareas = this.odb.getObjects(query);
 
-		List<Tarea> tareasL = new ArrayList();
+		List<Tarea> tareasL = new ArrayList<Tarea>();
 
 		while (tareas.hasNext()) {
 
-			Tarea t = tareas.next();
+			Tarea t = (Tarea)tareas.next();
 			tareasL.add(t);
 		}
 		return tareasL;
 	}
 	
+	public void modificarFinalizada(int id) {
+		
+		ICriterion criterio = Where.equal("id",id);
+		
+		IQuery query = new CriteriaQuery(Tarea.class, criterio);
+		
+		Objects<Tarea> tareas = this.odb.getObjects(query);
+		
+		Tarea t = (Tarea)tareas.next();
+		
+		boolean finalizada = t.isFinalizada();
+		if (finalizada)finalizada=false;
+		else finalizada=true;
+		
+		t.setFinalizada(finalizada);
+		odb.store(t);
+		
+		System.out.println("Cambio realizado para el id: " + id);
+	}
 	
-
+	public boolean verificarClases(Tarea tarea ) {
+		
+		int id = tarea.getId();
+		
+		ArrayList<Tarea> tareas =  this.recuperarObjs(Tarea.class);
+		
+		boolean existe = false;
+		
+		for (Tarea t: tareas) {
+			
+			if(t.getId()== id) {
+				existe=true;
+				break;
+			}
+		}
+		
+		return existe;	
+	}
+	
+	public  boolean verificarClases(TipoTarea tipoTarea ) {
+		
+		int id = tipoTarea.getId();
+		
+		ArrayList<TipoTarea> tipoTareas =  this.recuperarObjs(TipoTarea.class);
+		
+		boolean existe = false;
+		
+		for (TipoTarea tt: tipoTareas) {
+			
+			if(tt.getId()== id) {
+				existe=true;
+				break;
+			}
+		}
+		
+		return existe;	
+	}
+	
 	public void cerrarOBD() {
 
 		this.odb.close();

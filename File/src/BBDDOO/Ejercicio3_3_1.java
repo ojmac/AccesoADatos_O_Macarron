@@ -64,6 +64,12 @@ Emplea los métodos de Test necesarios para la ejecución de los métodos anteri
 		}	
 	}
 		
-	
+	public void cambiarCampoFinalizada(int id) {
+		
+		NeoDatis nd = new NeoDatis("BBDDTareas2.db");
+		nd.modificarFinalizada(id);
+		nd.cerrarOBD();
+		
+	}
 	
 }

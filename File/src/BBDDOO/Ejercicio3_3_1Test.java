@@ -31,5 +31,10 @@ class Ejercicio3_3_1Test {
 		ej.mostrarTareasEntreDosFechasExc("2024-05-02", "2024-10-30");;
 		
 	}
+	
+	@Test
+	void cambiarCampoFinalizadaTest 	(){
+		ej.cambiarCampoFinalizada(1);
+	}
 
 }

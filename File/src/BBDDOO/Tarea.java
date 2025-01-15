@@ -73,5 +73,13 @@ public class Tarea {
 		return "Tarea [id=" + id + ", descripcion=" + descripcion + ", fechaInicio=" + fechaInicio + ", fechaFin="
 				+ fechaFin + ", finalizada=" + finalizada + ", tipoTarea=" + tipoTarea + "]";
 	}
+	
+	public int obtenerIdTipoTarea() {
+		
+		int id = this.tipoTarea.getId();
+		
+		return id;
+		
+	}
 
 }

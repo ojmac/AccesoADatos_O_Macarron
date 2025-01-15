@@ -24,6 +24,7 @@ public class Ej_3_1_1 {
 	 * Emplea los métodos de Test necesarios para la ejecución de los métodos
 	 * anteriores.
 	 */
+	
 	private TipoTarea tt1 = new TipoTarea(1, "deb", "hacer deberes");
 	private TipoTarea tt2 = new TipoTarea(2, "comp", "hacer compras");
 	private TipoTarea tt3 = new TipoTarea(3, "est", "estudios");
