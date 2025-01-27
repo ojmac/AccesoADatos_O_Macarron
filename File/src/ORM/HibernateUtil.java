@@ -25,8 +25,9 @@ public class HibernateUtil {
 
 		// Se registran las clases que hay que mapear con cada tabla de la base de datos
 		configuration.addAnnotatedClass(Coche.class);
-		// configuration.addAnnotatedClass(Clase2.class);
-		// configuration.addAnnotatedClass(Clase3.class);
+		configuration.addAnnotatedClass(Conductor.class);
+		configuration.addAnnotatedClass(Reparacion.class);
+		configuration.addAnnotatedClass(PermisoCirc.class);
 
 		// Se crea una SessionFactory a partir del objeto Configuration
 		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
