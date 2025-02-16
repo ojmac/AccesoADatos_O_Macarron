@@ -13,9 +13,15 @@ import hibernate.entity.PermisoCirc;
 import hibernate.entity.Reparacion;
 
 class HibernateUtilTest {
+	
+	
+	/*Ejercicio 3.8*/
+	
 	@Test
 	void test1() {
 		try (Session sesion = HibernateUtil.openSession()){
+			
+			 System.out.println("Hibernate version: " + org.hibernate.Version.getVersionString());
 			
 		} catch (Exception e) {
 			
@@ -32,15 +38,11 @@ class HibernateUtilTest {
 
 	
 	@Test
-	void test() {
+	void crearRegTest() {
 		
 		try(Session sesion = HibernateUtil.openSession()){
-			
-			
 						
 			PermisoCirc permisoC1 = new PermisoCirc(0001, "2024-12-01", "2025-12-01", null);
-			
-			
 			
 			Reparacion rep1 = new Reparacion("100AA" ,"rotura tubo de escape", 454.56, null);
 			Reparacion rep2 = new Reparacion("100BB" ,"rotura junta de la trocola", 533.23, null);
@@ -71,14 +73,55 @@ class HibernateUtilTest {
 			for (Reparacion r: c1.getReparaciones()) {
 				sesion.save(r);	
 			}
+			
 			for (Conductor c: c1.getConductores()) {
 				sesion.save(c);
 			}
+			
 			sesion.getTransaction().commit();
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	void recuperarObjTest() {
+		
+		try(Session sesion = HibernateUtil.openSession()){
+			Coche c1 = sesion.get(Coche.class, "AAA111");
+			
+			System.out.println("Objeto recuperado " + c1.toString());	
+		
+		} catch (Exception e) {
+			
+			System.out.println("ERROR");
+			
+			e.printStackTrace();
+		}finally {
+			HibernateUtil.closeSessionFactory();
+		}
+	}
+	
+	@Test
+	void borrarObjTest() {
+		try(Session sesion = HibernateUtil.openSession()){
+			Coche c1 = sesion.get(Coche.class, "AAA111");
+			
+			if(c1!= null) {
+				sesion.beginTransaction();
+				sesion.delete(c1);
+				sesion.getTransaction().commit();
+			}else {
+				System.out.println("no existe");
+			}
+		
+		
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 	}
 }

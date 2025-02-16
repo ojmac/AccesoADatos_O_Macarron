@@ -29,6 +29,11 @@ public class PermisoCirc {
 	
 	@OneToOne(mappedBy = "permiso")
 	private Coche coche;
+	
+	public PermisoCirc() {
+		
+	}
+			
 
 	public PermisoCirc(int numRegistro, String f_expedicion, String f_expiracion, Coche coche) {
 		super();

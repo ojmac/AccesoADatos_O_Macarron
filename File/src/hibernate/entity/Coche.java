@@ -2,7 +2,6 @@ package hibernate.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +12,17 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
+/*
+CascadeType	¿Guarda si es nuevo (persist())?	¿Actualiza si ya existe (merge())?	¿Borra (remove())?	¿Recarga desde la BD (refresh())?	¿Desconecta (detach())?
+PERSIST	        ✅ Sí	                                ❌ No	                       ❌ No	                      ❌ No	                             ❌ No
+MERGE	        ❌ No	                                ✅ Sí	                       ❌ No	                      ❌ No	                             ❌ No
+REMOVE	        ❌ No	                                ❌ No	                       ✅ Sí	                      ❌ No	                             ❌ No
+REFRESH	        ❌ No	                                ❌ No	                       ❌ No	                      ✅ Sí	                             ❌ No
+DETACH	        ❌ No	                                ❌ No	                       ❌ No	                      ❌ No	                             ✅ Sí
+ALL	            ✅ Sí	                                ✅ Sí	                       ✅ Sí	                      ✅ Sí	                             ❌ No
+*/
 
 
 @Entity
@@ -39,7 +49,7 @@ public class Coche {
 	@Column (name = "velocidadMax")
 	private double velocidadMax;
 
-	@OneToOne()
+	@OneToOne(cascade  = CascadeType.ALL)
 	@JoinColumn(name ="Permiso_Circulacion",
 			referencedColumnName = "numReg",
 			foreignKey = @ForeignKey(name = "fk_permiso_id"))
@@ -48,7 +58,8 @@ public class Coche {
 	@OneToMany(mappedBy = "coche", cascade = CascadeType.ALL)
 	private List<Reparacion> reparaciones= new ArrayList<>(); 
 	
-	@ManyToMany(mappedBy = "coches", cascade = CascadeType.DETACH)
+	//@ManyToMany(mappedBy = "coches", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "coches",cascade = {CascadeType.PERSIST, CascadeType.MERGE})//no se eliminarán los Conductores, solo la relación en la tabla intermedia.
 	private List<Conductor> conductores = new ArrayList<>();  
 
 	

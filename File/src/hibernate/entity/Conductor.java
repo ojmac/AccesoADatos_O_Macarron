@@ -34,6 +34,10 @@ public class Conductor {
 		inverseJoinColumns={@JoinColumn(name="matricula", foreignKey = @ForeignKey(name = "fk_matricula_id"))})
 	private List<Coche> coches = new ArrayList<>();
 
+	public Conductor() {
+		
+	}
+	
 	public Conductor(int numCarnet, String nombre, int anyosCarnet) {
 		super();
 		this.numCarnet = numCarnet;

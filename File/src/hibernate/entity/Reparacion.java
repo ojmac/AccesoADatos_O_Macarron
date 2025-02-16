@@ -28,6 +28,10 @@ public class Reparacion {
 		referencedColumnName = "matricula",
 	  	foreignKey = @ForeignKey(name = "fk_matricula"))
 	private Coche coche;
+	
+	public Reparacion() {
+		
+	}
 
 	public Reparacion(String reparacionId, String descripcion, double precio, Coche coche) {
 		super();

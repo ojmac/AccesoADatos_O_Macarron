@@ -13,6 +13,10 @@ public class Direccion {
 	private String ciudad;
 	
 	private Usuario usuario;
+	
+	public Direccion() {
+		
+	}
 
 	public Direccion(int direccion_id, String calle, int num, int cp, String ciudad, Usuario usuario) {
 		super();

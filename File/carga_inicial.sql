@@ -1,0 +1,1 @@
+insert into nombre tabala (edad, nombre) values()
